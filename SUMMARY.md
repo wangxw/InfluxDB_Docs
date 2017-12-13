@@ -3,10 +3,10 @@
 ## 介绍
 
 * [下载](README.md)
-  * 下载一
+  * [下载一](xia-zai-yi.md)
 * [安装](chapter1.md)
-  * linux安装
-  * windows安装
+  * [linux安装](chapter1/linuxan-zhuang.md)
+  * [windows安装](chapter1/windowsan-zhuang.md)
 * [快速开始](jie-shao.md)
 
 ## 向导
