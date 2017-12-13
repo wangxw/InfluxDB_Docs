@@ -28,8 +28,6 @@ l-precision参数指定了返回时间戳的格式/精度。在上述案例中�
 
 现在，接下来的命令都只针对mydb数据库。
 
-
-
 写数据及查询：
 
 既然我们有了数据库，那InfluxDB就可以接受查询和写操作了。
@@ -49,4 +47,14 @@ Points通过Line Protocol写入InfluxDB，格式如下。
 上面point的测量指标值measurement为cpu，标签tags为host和region，可度量的value是0.64
 
 现在我们来查询一下刚写入的数据：
+
+注意：当我们写入point时并没有提供一个时间戳。当未提供时间戳时，InfluxDB会在point存入时为其分配本地当前的时间戳。这意味着你的时间戳是有差别的。
+
+让我们尝试存储另一种数据：在同一个measurement中有两个fields：
+
+要想在一个查询里返回所有的fields和tags，可以使用操作符\*：
+
+InfluxDB中还有许多这里没有覆盖到的特征和关键字，另外也没有讲对它Go-style正则的支持。如：
+
+上面内容是关于写数据到InfluxDB中和查询数据时需要的所有基本信息。想要了解更多关于InfluxDB写协议，请查看[**Writing Data**](http://docs.influxdata.com/influxdb/v1.3/guides/writing_data/)指南。想要了解更多查询语言，请查看[**Querying Data**](http://docs.influxdata.com/influxdb/v1.3/guides/querying_data/)指南。想要查看更多关于InfluxDB概念的信息，请查看[**Key Concepts**](http://docs.influxdata.com/influxdb/v1.3/concepts/key_concepts/)页。
 
