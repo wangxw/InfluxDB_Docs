@@ -5,8 +5,8 @@
   * [安装](an-zhuang.md)
   * [快速开始](kuai-su-kai-shi.md)
 * [向导](jie-shao.md)
-  * 写入数据HTTP API
-  * 查询数据HTTP API
+  * [写入数据HTTP API](jie-shao/xie-ru-shu-ju-http-api.md)
+  * [查询数据HTTP API](jie-shao/cha-xun-shu-ju-http-api.md)
   * 采样和数据保留策略
   * 硬件需求指南
   * https安装
