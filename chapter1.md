@@ -1,3 +1,4 @@
-# First Chapter
+    在Ubuntu, Debian, Red Hat, CentOS, and OS X等系统下influxDB的安装指引。
 
-GitBook allows you to organize your book into chapters, each chapter is stored in a separate file like this one.
+
+

@@ -1,3 +1,2 @@
-# My Awesome Book
+提供最新稳定版本influxDB下载位置。
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
