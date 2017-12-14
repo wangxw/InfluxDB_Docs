@@ -37,8 +37,6 @@ echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stabl
 
 Debian用户添加InfluxData版本库的命令：
 
-
-
 ```
 curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
 source /etc/os-release
@@ -172,8 +170,7 @@ influxd
 
 InfluxDB 首先会检查-config选项，接着去取环境变量。
 
-更多信息请查看文档“配置”部分。  
-
+更多信息请查看文档“配置”部分。
 
 ## AWS上的虚拟主机服务
 
@@ -224,8 +221,6 @@ dir = "/mnt/db/hh"
 chown influxdb:influxdb /mnt/influx
 chown influxdb:influxdb /mnt/db
 ```
-
-
 
 
 
