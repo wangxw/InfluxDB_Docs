@@ -24,7 +24,7 @@
   * 错误信息
 * [工具](gong-ju.md)
   * [CLI／Shell](gong-ju/clishell.md)
-  * API参考
+  * [API参考](gong-ju/apican-kao.md)
   * API 客户端库
   * Web管理接口
   * Influx 检查

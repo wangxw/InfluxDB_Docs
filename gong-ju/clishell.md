@@ -1,6 +1,6 @@
 InfluxDB的命令行接口（`influx`）是用作HTTP API的交互shell，使用influx命令可以写入数据（手动写入或从文件写入）、交互查询数据、以及以不同格式查看查询输出。
 
-* [启动 ](#qi-do-ng)influx
+* [启动](#启动influx) influx
 * influx [参数](#influx-参数)
 * influx [命令](#influx命令)
 
@@ -134,14 +134,18 @@ databases,_internal
 databases,telegraf
 databases,pirates
 ```
+
 使用json格式：
+
 ```
 $ influx -format=json
 [...]
 > SHOW DATABASES
 {"results":[{"series":[{"name":"databases","columns":["name"],"values":[["NOAA_water_database"],["_internal"],["telegraf"],["pirates"]]}]}]}
-``` 
+```
+
 使用 json格式并打开-pretty输出选项
+
 ```
 $ influx -format=json -pretty
 [...]
@@ -175,13 +179,49 @@ $ influx -format=json -pretty
     ]
 }
 ```
-####使用-import从文件导入数据
-导入文件有两个部分：
-* DDL（数据描述语言）：包含创建数据库和管理保留策略的influxQL语句，如果你的数据库和保留策略已经存在，那么导入文件可以省略这部分。
-* DML（数据操作语言）：
- Lists the relevant database and (if desired) retention policy and contains the data in line protocol.
 
-#### Influx命令
+#### 使用-import从文件导入数据
+
+导入文件有两个部分：
+
+* DDL（数据描述语言）：包含创建数据库和管理保留策略的influxQL语句，如果你的数据库和保留策略已经存在，那么导入文件可以省略这部分。
+* DML（数据操作语言）：列出数据库、保留策略以及包含的数据（以行协议表示）
+
+例如：
+
+文件（datarrr.txt）
+
+```
+# DDL
+CREATE DATABASE pirates
+CREATE RETENTION POLICY oneday ON pirates DURATION 1d REPLICATION 1
+
+# DML
+# CONTEXT-DATABASE: pirates
+# CONTEXT-RETENTION-POLICY: oneday
+
+treasures,captain_id=dread_pirate_roberts value=801 1439856000
+treasures,captain_id=flint value=29 1439856000
+treasures,captain_id=sparrow value=38 1439856000
+treasures,captain_id=tetra value=47 1439856000
+treasures,captain_id=crunch value=109 1439858880
+```
+
+导入命令：
+
+```
+$influx -import -path=datarrr.txt -precision=s 
+```
+
+导入结果：
+
+```
+2015/12/22 12:25:06 Processed 2 commands
+2015/12/22 12:25:06 Processed 5 inserts
+2015/12/22 12:25:06 Failed 0 inserts
+```
+
+> 提示
 
 
 
