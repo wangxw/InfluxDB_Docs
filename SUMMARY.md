@@ -22,8 +22,8 @@
   * 服务监控
   * 查询管理
   * 错误信息
-* 工具
-  * CLI／Shell
+* [工具](gong-ju.md)
+  * [CLI／Shell](gong-ju/clishell.md)
   * API参考
   * API 客户端库
   * Web管理接口
