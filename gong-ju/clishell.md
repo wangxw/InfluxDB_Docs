@@ -240,9 +240,7 @@ $influx -import -path=datarrr.txt -precision=s
 
 在CLI中输入help可以获取部分可用命令列表。
 
-
-
-
+命令
 
 
 
