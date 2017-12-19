@@ -210,7 +210,7 @@ treasures,captain_id=crunch value=109 1439858880
 导入命令：
 
 ```
-$influx -import -path=datarrr.txt -precision=s 
+$influx -import -path=datarrr.txt -precision=s
 ```
 
 导入结果：
@@ -221,7 +221,28 @@ $influx -import -path=datarrr.txt -precision=s
 2015/12/22 12:25:06 Failed 0 inserts
 ```
 
-> 提示
+> 提示:对于大量的数据集导入，influxdb每10万个point输出一次状态信息，例如
+>
+> ```
+> 2015/08/21 14:48:01 Processed 3100000 lines.
+> Time elapsed: 56.740578415s.
+> Points per second (PPS): 54634
+> ```
+
+关于-import参数需要记住的事情：
+
+* 允许使用-pps参数设置每秒钟导入数据的限制，默认情况下pps是0并且不限制导入的速率。
+* 导入.gz的文件，只需要在命令中执行-compressed参数
+* 在数据文件中需要包含时间戳，如果没有指定时间，influxdb将分配一个相同的时间戳，这将导致意外的数据覆盖行为。
+* 如果你的数据文件超过5000条（points），有必要将文件切分成多个来进行批量导入，我们建议分批导入5000-10000个点。更小的导入量和更多的http请求将导致次优性能。默认情况下http请求的超时时间是5秒，influxdb在超时时将会重试但不会确认是否正确写入。
+
+### influx 命令
+
+在CLI中输入help可以获取部分可用命令列表。
+
+
+
+
 
 
 
