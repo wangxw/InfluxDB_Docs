@@ -12,7 +12,7 @@
   * [https安装](jie-shao/httpsan-zhuang.md)
 * [概念](gai-nian.md)
   * [关键概念](gai-nian/guan-jian-gai-nian.md)
-  * 术语
+  * [术语](gai-nian/zhu-yu.md)
   * [与SQL对比](gai-nian/yu-sql-dui-bi.md)
   * 设计理念与权衡
   * Schema设计
